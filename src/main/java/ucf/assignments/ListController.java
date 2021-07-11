@@ -120,10 +120,26 @@ public class ListController {
 
 
     public void newDescValue(ActionEvent actionEvent) {
+        /*
         descS = descField.getText();
         lManage.addDescription(descS);
         aList = lManage.updateList();
         descField.setText("Current desc: "+descS);
+
+         */
+        descS = descField.getText();
+        int length = descS.length();
+        if(length>0&&length<128)
+        {
+            lManage.addDescription(descS);
+            aList = lManage.updateList();
+            descField.setText("Current desc: "+descS);
+        }
+        else
+        {
+            descField.setText("Bad value. Enter a description between 1-128 characters.");
+        }
+
     }
 
     public void newDateValue(ActionEvent actionEvent) {
@@ -189,17 +205,55 @@ public class ListController {
     }
 
     public void editDescValue(ActionEvent actionEvent) {
+        /*
         edescS = edescField.getText();
         lManage.editDescription(edescS);
         aList = lManage.updateList();
         edescField.setText("Desc: "+edescS);
+
+
+         */
+
+
+        edescS = edescField.getText();
+        int length = edescS.length();
+        if(length>0&&length<128)
+        {
+            lManage.editDescription(edescS);
+            aList = lManage.updateList();
+            edescField.setText("Desc: "+edescS);
+        }
+        else
+        {
+            edescField.setText("Bad value. Enter a description between 1-128 characters.");
+        }
     }
 
     public void editDateValue(ActionEvent actionEvent) {
+        /*
         edateS = edateField.getText();
         lManage.editDate(edateS);
         aList = lManage.updateList();
         edateField.setText("Date: "+edateS);
+
+         */
+
+
+        edateS = edateField.getText();
+        Pattern pattern = Pattern.compile("[0-9][0-9][0-9][0-9][-][0-9][0-9][-][0-9][0-9]");
+        Matcher match = pattern.matcher(edateS);
+
+        if(!match.matches()){
+            //response = "The employee ID must be in the format of AA-1234.";
+            //printResult(response);
+            edateField.setText("Bad value. Enter a date in the form YYYY-MM-DD");
+
+        }
+        else{
+            lManage.addDate(edateS);
+            aList = lManage.updateList();
+            edateField.setText("Current date: "+edateS);
+        }
     }
 
     public void compValue(ActionEvent actionEvent) {
