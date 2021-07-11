@@ -110,6 +110,9 @@ public class ListController {
         aList = lManage.updateList();
         names = lManage.updateNames();
         complete = lManage.updateComplete();
+        nameField.setText("Current name: "+nameS);
+        //nameField.setAccessibleText("Current name: "+nameS);
+
     }
 
 
@@ -117,12 +120,27 @@ public class ListController {
         descS = descField.getText();
         lManage.addDescription(descS);
         aList = lManage.updateList();
+        descField.setText("Current desc: "+descS);
     }
 
     public void newDateValue(ActionEvent actionEvent) {
+        /*
+        Pattern pattern = Pattern.compile("[a-zA-Z][a-zA-Z][-][0-9][0-9][0-9][0-9]");
+        Matcher match = pattern.matcher(givenString);
+
+        if(!match.matches()){
+            response = "The employee ID must be in the format of AA-1234.";
+            printResult(response);
+            return 1;
+        }
+        else{
+            return 0;
+        }
+         */
         dateS = dateField.getText();
         lManage.addDate(dateS);
         aList = lManage.updateList();
+        dateField.setText("Current date: "+dateS);
     }
 
 
@@ -132,6 +150,7 @@ public class ListController {
         sendS = sendField.getText();
         ListMoveOperations mManage = new ListMoveOperations(aList,names,complete, sendS);
         mManage.sendListToText();
+        sendField.setText("Filename: "+sendS);
     }
 
     public void recValue(ActionEvent actionEvent) {
@@ -145,6 +164,7 @@ public class ListController {
 
         complete.clear();
         complete = mManage.recCompFromText();
+        recField.setText("Filename: "+recS);
 
     }
 
@@ -155,6 +175,7 @@ public class ListController {
         lManage.remList(remS);
         aList = lManage.updateList();
         names = lManage.updateNames();
+        remField.setText("Remove: "+remS);
     }
 
     public void clearList(ActionEvent actionEvent) {
@@ -168,12 +189,14 @@ public class ListController {
         edescS = edescField.getText();
         lManage.editDescription(edescS);
         aList = lManage.updateList();
+        edescField.setText("Desc: "+edescS);
     }
 
     public void editDateValue(ActionEvent actionEvent) {
         edateS = edateField.getText();
         lManage.editDate(edateS);
         aList = lManage.updateList();
+        edateField.setText("Date: "+edateS);
     }
 
     public void compValue(ActionEvent actionEvent) {
