@@ -18,6 +18,9 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -124,23 +127,23 @@ public class ListController {
     }
 
     public void newDateValue(ActionEvent actionEvent) {
-        /*
-        Pattern pattern = Pattern.compile("[a-zA-Z][a-zA-Z][-][0-9][0-9][0-9][0-9]");
-        Matcher match = pattern.matcher(givenString);
+
+        dateS = dateField.getText();
+        Pattern pattern = Pattern.compile("[0-9][0-9][0-9][0-9][-][0-9][0-9][-][0-9][0-9]");
+        Matcher match = pattern.matcher(dateS);
 
         if(!match.matches()){
-            response = "The employee ID must be in the format of AA-1234.";
-            printResult(response);
-            return 1;
+            //response = "The employee ID must be in the format of AA-1234.";
+            //printResult(response);
+            dateField.setText("Bad value. Enter a date in the form YYYY-MM-DD");
+
         }
         else{
-            return 0;
+            lManage.addDate(dateS);
+            aList = lManage.updateList();
+            dateField.setText("Current date: "+dateS);
         }
-         */
-        dateS = dateField.getText();
-        lManage.addDate(dateS);
-        aList = lManage.updateList();
-        dateField.setText("Current date: "+dateS);
+
     }
 
 
