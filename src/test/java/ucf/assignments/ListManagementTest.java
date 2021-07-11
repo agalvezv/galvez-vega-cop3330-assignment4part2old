@@ -1,8 +1,74 @@
 package ucf.assignments;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ListManagementTest {
+    @Test
+    void addName() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        String expected = "poop";
+        String actual = (String)tManage.aList.get(0);
+        assertEquals(expected, actual);
+
+
+
+    }
+
+    @Test
+    void addDescription() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        tManage.addDescription("the scoop");
+        String expected = "poop  Description: the scoop";
+        String actual = (String)tManage.aList.get(0);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void addDate() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        tManage.addDescription("the scoop");
+        tManage.addDate("2020-10-30");
+        String expected = "poop  Description: the scoop  Date: 2020-10-30";
+        String actual = (String)tManage.aList.get(0);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void remList() {
+    }
+
+    @Test
+    void clearList() {
+    }
+
+    @Test
+    void editDescription() {
+    }
+
+    @Test
+    void editDate() {
+    }
+
+    @Test
+    void compItem() {
+    }
+
+    @Test
+    void incompItem() {
+    }
+
+    @Test
+    void allDisplay() {
+    }
+
+    @Test
+    void completeDisplay() {
+    }
 
 
     //6)function that adds to array list

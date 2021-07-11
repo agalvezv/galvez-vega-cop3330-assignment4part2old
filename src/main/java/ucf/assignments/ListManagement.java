@@ -76,7 +76,7 @@ public class ListManagement {
             if(nameS.equals(names.get(i)))
             {
                 String lDate = nameS + descS + this.dateS;
-                aList.set(i,aList.get(i)+lDate);
+                aList.set(i,lDate);
             }
         }
 
