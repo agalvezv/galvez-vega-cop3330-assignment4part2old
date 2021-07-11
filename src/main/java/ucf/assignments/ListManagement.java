@@ -5,6 +5,7 @@ package ucf.assignments;
  *  Copyright 2021 alexandro galvez-vega
  */
 
+import javax.swing.*;
 import java.util.ArrayList;
 //My original pseudocode is on the bottom.
 
@@ -190,11 +191,11 @@ public class ListManagement {
     }
 
     public String incompleteDisplay() {
-        String holder = "\n ";
+        String holder = "\n";
         int size = complete.size();
         for(int i=0; i<size;i++)
         {
-            if(complete.get(i).equals("incomplete"));
+            if(complete.get(i).equals("incomplete"))
             {
                 holder = holder + aList.get(i)+"\n";
             }
@@ -203,7 +204,7 @@ public class ListManagement {
     }
 
     public String allDisplay() {
-        String holder = "\n ";
+        String holder = "\n";
         int size = aList.size();
         for(int i=0; i<size;i++)
         {
@@ -213,11 +214,11 @@ public class ListManagement {
     }
 
     public String completeDisplay() {
-        String holder = "\n ";
+        String holder = "\n";
         int size = complete.size();
         for(int i=0; i<size;i++)
         {
-            if(complete.get(i).equals("complete"));
+            if(complete.get(i).equals("complete"))
             {
                 holder = holder + aList.get(i)+"\n";
             }

@@ -40,34 +40,143 @@ class ListManagementTest {
 
     @Test
     void remList() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        tManage.addDescription("the scoop");
+        tManage.addDate("2020-10-30");
+        tManage.remList("poop");
+        tManage.addName(" ");
+        String expected = " ";
+        String actual = (String)tManage.aList.get(0);
+        assertEquals(expected, actual);
     }
 
     @Test
     void clearList() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        tManage.addDescription("the scoop");
+        tManage.addDate("2020-10-30");
+        tManage.remList("poop");
+
+        tManage.addName("poop2");
+        tManage.addDescription("the scoop2");
+        tManage.addDate("2020-10-05");
+        tManage.clearList();
+        tManage.addName(" ");
+        String expected = " ";
+        String actual = (String)tManage.aList.get(0);
+        assertEquals(expected, actual);
     }
 
     @Test
     void editDescription() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        tManage.addDescription("the scoop");
+        tManage.addDate("2020-10-30");
+        tManage.editDescription("this scoop");
+        String expected = "poop  Description: this scoop  Date: 2020-10-30";
+        String actual = (String)tManage.aList.get(0);
+        assertEquals(expected, actual);
     }
 
     @Test
     void editDate() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        tManage.addDescription("the scoop");
+        tManage.addDate("2020-10-30");
+        tManage.editDescription("this scoop");
+        tManage.editDate("2020-10-28");
+        String expected = "poop  Description: this scoop  Date: 2020-10-28";
+        String actual = (String)tManage.aList.get(0);
+        assertEquals(expected, actual);
     }
 
     @Test
     void compItem() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+
+
+        tManage.addName("poop2");
+
+
+        tManage.compItem("poop");
+        String expected = "complete";
+
+        //System.out.println(tManage.aList);
+        //System.out.println(tManage.complete);
+        String actual = (String)tManage.complete.get(0);
+        assertEquals(expected, actual);
     }
 
     @Test
     void incompItem() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+
+
+        tManage.addName("poop2");
+
+
+        tManage.compItem("poop");
+        tManage.incompItem("poop");
+        String expected = "incomplete";
+
+        //System.out.println(tManage.aList);
+        //System.out.println(tManage.complete);
+        String actual = (String)tManage.complete.get(0);
+        assertEquals(expected, actual);
     }
 
     @Test
     void allDisplay() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+
+
+        tManage.addName("poop2");
+
+
+        String expected = "\n" +
+                "poop\n" +
+                "poop2\n";
+        String actual=tManage.allDisplay();
+        assertEquals(expected, actual);
     }
 
     @Test
     void completeDisplay() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        tManage.compItem("poop");
+
+
+        tManage.addName("poop2");
+
+        //System.out.print(tManage.complete);
+        String expected = "\n" +
+                "poop\n";
+        String actual=tManage.completeDisplay();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void incompleteDisplay() {
+        ListManagement tManage = new ListManagement();
+        tManage.addName("poop");
+        tManage.compItem("poop");
+
+
+        tManage.addName("poop2");
+
+
+        String expected = "\n" +
+                "poop2\n";
+        String actual=tManage.incompleteDisplay();
+        assertEquals(expected, actual);
     }
 
 
